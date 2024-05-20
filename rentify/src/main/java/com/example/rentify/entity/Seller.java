@@ -20,5 +20,6 @@ public class Seller {
     private String last_name;
     private String email;
     private long phone;
+    private String password;
     
 }
