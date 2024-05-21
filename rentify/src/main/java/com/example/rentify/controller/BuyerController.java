@@ -2,6 +2,7 @@ package com.example.rentify.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -29,7 +30,8 @@ public class BuyerController {
         return ResponseEntity.ok().body(buyerService.updateBuyer(buyer));
     }
 
-    public ResponseEntity<String> deleteBuyer(int id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteBuyer(@PathVariable int id){
         return ResponseEntity.status(204).body(buyerService.deleteBuyer(id));
     }
 }
