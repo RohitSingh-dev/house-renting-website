@@ -1,10 +1,12 @@
 package com.example.rentify.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.rentify.entity.Buyer;
 import com.example.rentify.repository.BuyerRepository;
 
+@Service
 public class BuyerService {
     
     @Autowired
