@@ -2,7 +2,11 @@ package com.example.rentify.entity;
 
 import javax.validation.constraints.Email;
 
+import com.example.rentify.model.UserType;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,23 +18,23 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Buyer {
+public class LoginInfo {
     
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private int id;
 
-    private String firstname;
-    private String lastname;
-    @Email(message = "Enter correct Email")
+    @Email
     private String email;
-    private long phone;
     private String password;
-    public Buyer(String firstname, String lastname, @Email(message = "Enter correct Email") String email, long phone) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-    }
 
+    @Enumerated(EnumType.STRING)
+    private UserType role;
+
+    public LoginInfo(@Email String email, String password, UserType role) {
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+    
 }

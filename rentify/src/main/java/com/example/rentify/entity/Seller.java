@@ -14,10 +14,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class Seller {
     
@@ -35,5 +37,12 @@ public class Seller {
     @JsonIgnore
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<Property> properties = new ArrayList<>();
+
+    public Seller(String firstname, String lastname, @Email(message = "Enter correct Email") String email, long phone) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+    }
     
 }

@@ -8,10 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class Property {
     
@@ -27,4 +29,13 @@ public class Property {
 
     @ManyToOne
     private Seller seller;
+
+    public Property(String location, String area, int bedroomNum, int bathroomNum, List<String> landmark) {
+        this.location = location;
+        this.area = area;
+        this.bedroomNum = bedroomNum;
+        this.bathroomNum = bathroomNum;
+        this.landmark = landmark;
+    }
+
 }
