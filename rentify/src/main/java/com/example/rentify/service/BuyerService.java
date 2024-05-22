@@ -13,13 +13,13 @@ public class BuyerService {
     private BuyerRepository buyerRepository;
 
     public Buyer getBuyer(int id){
-        return buyerRepository.findById(id).get();
+        return buyerRepository.findById(id).orElseThrow(()-> new RuntimeException("Buyer Not Found"));
     }
 
     public Buyer updateBuyer(Buyer buyer){
-        Buyer existingBuyer = buyerRepository.findById(buyer.getId()).get();
-        existingBuyer.setFirst_name(buyer.getFirst_name());
-        existingBuyer.setLast_name(buyer.getLast_name());
+        Buyer existingBuyer = buyerRepository.findById(buyer.getId()).orElseThrow(()-> new RuntimeException("Buyer Not Found"));
+        existingBuyer.setFirstname(buyer.getFirstname());
+        existingBuyer.setLastname(buyer.getLastname());
         existingBuyer.setPhone(buyer.getPhone());
         return existingBuyer;
     }

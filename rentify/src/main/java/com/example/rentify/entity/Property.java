@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,7 +21,10 @@ public class Property {
 
     private String location;
     private String area;
-    private int no_of_bed;
-    private int no_of_bath;
+    private int bedroomNum;
+    private int bathroomNum;
     private List<String> landmark;
+
+    @ManyToOne
+    private Seller seller;
 }

@@ -13,13 +13,13 @@ public class SellerService {
     private SellerRepository sellerRepository;
 
     public Seller getSeller(int id){
-        return sellerRepository.findById(id).get();
+        return sellerRepository.findById(id).orElseThrow(()-> new RuntimeException("Seller Not Found"));
     }
 
     public Seller updateSeller(Seller seller){
-        Seller existingSeller = sellerRepository.findById(seller.getId()).get();
-        existingSeller.setFirst_name(seller.getFirst_name());
-        existingSeller.setLast_name(seller.getLast_name());
+        Seller existingSeller = sellerRepository.findById(seller.getId()).orElseThrow(()-> new RuntimeException("Seller Not Found"));
+        existingSeller.setFirstname(seller.getFirstname());
+        existingSeller.setLastname(seller.getLastname());
         existingSeller.setPhone(seller.getPhone());
         return existingSeller;
     }

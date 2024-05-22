@@ -8,4 +8,5 @@ import com.example.rentify.entity.Buyer;
 @Repository
 public interface BuyerRepository extends CrudRepository<Buyer, Integer>{
     
+    public Buyer findByEmail(String email);
 }
