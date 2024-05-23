@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.rentify.entity.Buyer;
+import com.example.rentify.model.BuyerResponse;
 import com.example.rentify.service.BuyerService;
 
 @RestController
@@ -21,12 +22,12 @@ public class BuyerController {
     private BuyerService buyerService;
     
     @GetMapping("/{id}")
-    public ResponseEntity<Buyer> getBuyer(@PathVariable int id){
+    public ResponseEntity<BuyerResponse> getBuyer(@PathVariable int id){
         return ResponseEntity.ok().body(buyerService.getBuyer(id));
     }
 
     @PutMapping()
-    public ResponseEntity<Buyer> updateBuyer(@RequestBody Buyer buyer){
+    public ResponseEntity<BuyerResponse> updateBuyer(@RequestBody Buyer buyer){
         return ResponseEntity.ok().body(buyerService.updateBuyer(buyer));
     }
 

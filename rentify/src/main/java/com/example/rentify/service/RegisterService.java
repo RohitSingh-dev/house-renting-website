@@ -35,7 +35,11 @@ public class RegisterService {
         if(Objects.nonNull(loginInfo)){
             throw new RuntimeException("User already exists, Enter different email");
         }
-        if(UserType.getUserType(registerRequest.getRole()).equals(UserType.BUYER)){
+        UserType userType = UserType.getUserType(registerRequest.getRole());
+        if(userType == null){
+            throw new RuntimeException("Invalid User type");
+        }
+        if(userType.equals(UserType.BUYER)){
             String password = passwordEncoder.encode(registerRequest.getPassword());
             loginInfo = new LoginInfo(registerRequest.getEmail(), password, UserType.BUYER);
             loginInfoRepository.save(loginInfo);
@@ -43,7 +47,7 @@ public class RegisterService {
             buyer.setPassword(password);
             buyerRepository.save(buyer);
         }
-        else{
+        else if(userType.equals(UserType.SELLER)){
             String password = passwordEncoder.encode(registerRequest.getPassword());
             loginInfo = new LoginInfo(registerRequest.getEmail(), password, UserType.SELLER);
             loginInfoRepository.save(loginInfo);

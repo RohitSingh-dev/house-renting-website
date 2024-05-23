@@ -2,14 +2,14 @@ package com.example.rentify.model;
 
 public enum UserType {
     
-    BUYER,SELLER;
+    BUYER, SELLER;
 
     public static UserType getUserType(String name){
         switch (name) {
             case "BUYER":
                 return UserType.BUYER;
 
-            case "PARENT":
+            case "SELLER":
                 return UserType.SELLER;
         }
 

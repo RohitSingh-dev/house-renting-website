@@ -23,6 +23,10 @@ public class PropertyService {
         return propertyRepository.findById(id).orElseThrow(()-> new RuntimeException("Property Not Found"));
     }
 
+    public List<Property> getAllProperties(){
+        return (List<Property>) propertyRepository.findAll();
+    }
+
     public Property updateProperty(Property property){
         Property existingProperty = propertyRepository.findById(property.getId()).orElseThrow(()-> new RuntimeException("Property Not Found"));
         existingProperty.setLocation(property.getLocation());

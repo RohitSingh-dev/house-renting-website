@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.constraints.Email;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -35,6 +36,7 @@ public class Seller {
     private String password;
 
     @JsonIgnore
+    @JsonIgnoreProperties
     @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
     private List<Property> properties = new ArrayList<>();
 

@@ -33,6 +33,11 @@ public class PropertyController {
         return ResponseEntity.ok().body(propertyService.getProperty(id));
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Property>> getAllProperties(){
+        return ResponseEntity.ok().body(propertyService.getAllProperties());
+    }
+
     @PutMapping()
     public ResponseEntity<Property> updateProperty(@RequestBody Property property){
         return ResponseEntity.ok().body(propertyService.updateProperty(property));

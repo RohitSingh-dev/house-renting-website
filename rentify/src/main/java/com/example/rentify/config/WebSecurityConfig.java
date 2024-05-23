@@ -41,12 +41,12 @@ public class WebSecurityConfig {
         httpSecurity.csrf(csrf -> csrf.disable()).authorizeRequests((auth)-> 
         auth.requestMatchers(HttpMethod.POST, "/login").permitAll()
         .requestMatchers(HttpMethod.POST, "/register").permitAll()
-        .requestMatchers(HttpMethod.GET, "/buyer/**").hasAuthority("BUYER")
-        .requestMatchers(HttpMethod.GET, "/seller/**").hasAuthority("SELLER")
+        .requestMatchers(HttpMethod.GET, "/buyer/..").hasAuthority("BUYER")
+        .requestMatchers(HttpMethod.GET, "/seller/..").hasAuthority("SELLER")
         .requestMatchers(HttpMethod.POST, "/property").hasAuthority("SELLER")
         .requestMatchers(HttpMethod.PUT, "/property").hasAuthority("SELLER")
-        .requestMatchers(HttpMethod.DELETE, "/property/**").hasAuthority("SELLER")
-        .requestMatchers(HttpMethod.GET, "/property/**").hasAnyAuthority("SELLER", "BUYER")
+        .requestMatchers(HttpMethod.DELETE, "/property/..").hasAuthority("SELLER")
+        .requestMatchers(HttpMethod.GET, "/property/..").hasAnyAuthority("SELLER", "BUYER")
         .anyRequest().authenticated().and().authenticationManager(authenticationManager))
         .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 

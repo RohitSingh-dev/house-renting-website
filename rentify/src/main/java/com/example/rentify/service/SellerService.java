@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.rentify.entity.Seller;
+import com.example.rentify.model.SellerResponse;
 import com.example.rentify.repository.SellerRepository;
 
 @Service
@@ -12,16 +13,19 @@ public class SellerService {
     @Autowired
     private SellerRepository sellerRepository;
 
-    public Seller getSeller(int id){
-        return sellerRepository.findById(id).orElseThrow(()-> new RuntimeException("Seller Not Found"));
+    public SellerResponse getSeller(int id){
+        Seller seller = sellerRepository.findById(id).orElseThrow(()-> new RuntimeException("Seller Not Found"));
+        SellerResponse sellerResponse= new SellerResponse(seller.getFirstname(), seller.getLastname(), seller.getEmail(), seller.getPhone());
+        return sellerResponse;
     }
 
-    public Seller updateSeller(Seller seller){
+    public SellerResponse updateSeller(Seller seller){
         Seller existingSeller = sellerRepository.findById(seller.getId()).orElseThrow(()-> new RuntimeException("Seller Not Found"));
         existingSeller.setFirstname(seller.getFirstname());
         existingSeller.setLastname(seller.getLastname());
         existingSeller.setPhone(seller.getPhone());
-        return existingSeller;
+        SellerResponse sellerResponse = new SellerResponse(existingSeller.getFirstname(), existingSeller.getLastname(), existingSeller.getEmail(), existingSeller.getPhone());
+        return sellerResponse;
     }
 
     public String deleteSeller(int id){
