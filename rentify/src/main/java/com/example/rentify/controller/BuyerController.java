@@ -26,7 +26,7 @@ public class BuyerController {
         return ResponseEntity.ok().body(buyerService.getBuyer(id));
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public ResponseEntity<BuyerResponse> updateBuyer(@RequestBody Buyer buyer){
         return ResponseEntity.ok().body(buyerService.updateBuyer(buyer));
     }

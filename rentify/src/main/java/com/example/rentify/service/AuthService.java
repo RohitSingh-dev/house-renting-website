@@ -23,6 +23,6 @@ public class AuthService implements UserDetailsService {
         LoginInfo loginInfo = Optional.ofNullable(loginInfoRepository.findByEmail(username))
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        return User.builder().username(loginInfo.getEmail()).password(loginInfo.getPassword()).build();
+        return User.builder().username(loginInfo.getEmail()).password(loginInfo.getPassword()).authorities(loginInfo.getRole().name()).build();
     }
 }

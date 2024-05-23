@@ -26,7 +26,7 @@ public class SellerController {
         return ResponseEntity.ok().body(sellerService.getSeller(id));
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public ResponseEntity<SellerResponse> updateSeller(@RequestBody Seller seller){
         return ResponseEntity.ok().body(sellerService.updateSeller(seller));
     }

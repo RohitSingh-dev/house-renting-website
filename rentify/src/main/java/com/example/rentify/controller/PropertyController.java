@@ -23,7 +23,7 @@ public class PropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @PostMapping()
+    @PostMapping("/create")
     public ResponseEntity<String> createProperty(@RequestBody Property property){
         return ResponseEntity.status(201).body(propertyService.createProperty(property));
     }
@@ -38,7 +38,7 @@ public class PropertyController {
         return ResponseEntity.ok().body(propertyService.getAllProperties());
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public ResponseEntity<Property> updateProperty(@RequestBody Property property){
         return ResponseEntity.ok().body(propertyService.updateProperty(property));
     }
