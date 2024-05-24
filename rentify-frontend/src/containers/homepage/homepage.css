@@ -1,6 +1,7 @@
 .homepage{
     display: flex;
     flex-direction: column;
+    width: 100%;
     background-color: #a1c1ac;
 }
 .homepage-bottom{
@@ -12,6 +13,7 @@
     flex-direction: column;
     text-align: left;
     margin-left: 40px;
+    margin-top: -20px;
 }
 .homepage-bottom-left h1{
     font-size: 40px;
@@ -27,15 +29,16 @@
     text-align: center;
     font-weight: 600;
     border: none;
+    border-radius: 8px;
     background-color: red;
     color: #fff;
     cursor: pointer;
 }
-.homepage-bottom-right{
-
+.homepage-bottom-left button:hover{
+    background-color: rgb(245, 0, 0);
 }
 .homepage-bottom-right img{
     width: 900px;
     height: 500px;
-    
+    margin-top: 17px;
 }
