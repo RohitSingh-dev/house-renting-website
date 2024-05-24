@@ -1,0 +1,13 @@
+.homepageHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+}
+.homepageHeader-left{
+    color: black;
+}
+.homepageHeader-right i{
+    margin: 0px 25px;
+    font-size: 23px;
+}
