@@ -10,9 +10,9 @@ const SellerNavbar = () => {
       </div>
       <div className="sellerNavbar-bottom">
         <Link to={"/dashboard"}><h3>Dashboard</h3></Link>
-        <Link to={"#profile"}><h3>Profile</h3></Link>
-        <Link to={"#mylist"}><h3>My List</h3></Link>
-        <Link to={"#logout"}><h3>Log Out</h3></Link>
+        <Link to={"/profile"}><h3>Profile</h3></Link>
+        <Link to={"/mylist"}><h3>My List</h3></Link>
+        <Link to={"/"}><h3>Log Out</h3></Link>
       </div>
     </div>
   )

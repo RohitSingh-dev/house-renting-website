@@ -1,34 +1,36 @@
-.registerForm{
+.propertyForm{
     color: #fff;
     text-align: center;
     z-index: 1;
 }
-.registerForm-button input{
+.propertyForm-buttons input{
     margin: 20px;
     font-size: 18px;
     padding: 5px 8px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+.propertyForm-buttons-add{
     background-color:#53a93f;
     color: #fff;
 }
-.registerForm-button input:hover{
+.propertyForm-buttons-add:hover{
     background-color:#5cb85c;
 }
-.registerForm-label{
-    margin-top: 20px;
+.propertyForm-label{
+    margin: 10px 50px;
 }
-.registerForm-label input{
+.propertyForm-label input{
     height: 25px;
     width: 200px;
-    margin-top: 1px;
+    margin-top: 5px;
     background-color: transparent;
     border: 1px solid #fff;
     border-radius: 2px;
     color: #fff;
 }
-.registerForm-fieldset{
+.propertyForm-fieldset{
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -39,12 +41,11 @@
     border-radius: 10px;
     box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.20);
 }
-.registerForm-legend{
-    margin-top: -5px;
-    margin-bottom: 10px;
-    font-size: 30px;
+.propertyForm-legend{
+    font-size: 28px;
+    margin-bottom: 8px;
 }
-.registerForm-background{
+.propertyForm-background{
     background-color: #fff;
     position: absolute;
     z-index: 2;
@@ -59,14 +60,11 @@
     align-items: center;
     justify-content: center;
 }
-.registerForm-close-btn{
+.propertyForm-close-btn{
     position: absolute;
     margin-left: 290px;
     margin-top: -10px;
     font-size: 20px;
     color: red;
     cursor: pointer;
-}
-.registerForm-dropdown{
-    margin-top: 10px;
 }
