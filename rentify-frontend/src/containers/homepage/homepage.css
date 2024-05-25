@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #a1c1ac;
+    background-color: #7bc294;
 }
 .homepage-bottom{
     display: flex;
@@ -35,7 +35,7 @@
     cursor: pointer;
 }
 .homepage-bottom-left button:hover{
-    background-color: rgb(245, 0, 0);
+    background-color: rgb(221, 0, 0);
 }
 .homepage-bottom-right img{
     width: 900px;

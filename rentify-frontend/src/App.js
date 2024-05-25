@@ -1,11 +1,16 @@
 import './App.css';
 import Homepage from './containers/homepage/Homepage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SellerDashboard from './containers/sellerDashboard/SellerDashboard';
 
 function App() {
   return (
-    <div className="App">
-      <Homepage />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Homepage />}/>
+        <Route path='/dashboard' element={<SellerDashboard />}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

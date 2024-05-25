@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './homepage.css';
 import HomepageHeader from '../../components/homepageHeader/HomepageHeader';
-import image from '../../assets/homepage-image.jpg';
+import image from '../../assets/homepage-image.png';
 import LoginForm from '../../components/loginForm/LoginForm';
 
 const Homepage = () => {

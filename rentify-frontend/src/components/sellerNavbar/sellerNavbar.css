@@ -1,0 +1,22 @@
+.sellerNavbar{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 40px;
+}
+.sellerNavbar-top a{
+    text-decoration: none;
+    color: #fff;
+}
+.sellerNavbar-top span{
+    color: black;
+}
+.sellerNavbar-bottom a{
+    text-decoration: none;
+    color: black;
+}
+.sellerNavbar-bottom a:hover{
+    color: #fff;
+}
+.sellerNavbar-bottom{
+    margin-top: 100px;
+}

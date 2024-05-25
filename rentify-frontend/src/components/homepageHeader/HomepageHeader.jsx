@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './homepageHeader.css';
+import RegisterForm from '../registerForm/RegisterForm';
 
 const HomepageHeader = () => {
+  const [isOpen, setIsOpen]= useState(false);
+  function togglePopUp(){
+    setIsOpen(!isOpen);
+  };
   return (
     <div className='homepageHeader'>
-        <div className="homepageHeader-left"><h1>Ren<span>tify</span></h1></div>
+        <div className="homepageHeader-left"><a href='/'><h1>Ren<span>tify</span></h1></a></div>
         <div className="homepageHeader-right">
-            <i class='bx bx-home-alt'></i>
+            <a href='/'><i class='bx bx-home-alt'></i></a>
             <i class='bx bx-info-circle'></i>
-            <i class='bx bx-user'></i>
+            <button onClick={togglePopUp}><i class='bx bx-user'></i></button>
+            {isOpen? <RegisterForm toggle={togglePopUp}/> : null}
         </div>
     </div>
     

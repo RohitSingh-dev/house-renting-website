@@ -4,11 +4,15 @@
     align-items: center;
     padding: 0px 40px;
 }
-.homepageHeader-left h1{
+.homepageHeader-left a{
+    text-decoration: none;
     color: #fff;
-    cursor: pointer;
 }
 .homepageHeader-left span{
+    color: black;
+}
+.homepageHeader-right a{
+    text-decoration: none;
     color: black;
 }
 .homepageHeader-right i{
@@ -18,4 +22,8 @@
 }
 .homepageHeader-right i:hover{
     color: #fff;
+}
+.homepageHeader-right button{
+    background-color: transparent;
+    border: none;
 }
