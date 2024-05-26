@@ -1,6 +1,7 @@
 import React from 'react';
 import './profilePage.css';
 import { SellerNavbar } from '../../components';
+import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {
   return (
@@ -30,18 +31,18 @@ const ProfilePage = () => {
             <div className="profilePage-right-top-right">
                 <form>
                     <div className='profilePage-label'>
-                        <label>Email</label><br></br>
+                        <label>*Email</label><br></br>
                         <input type="email" placeholder="Email" value={"rohit123@gmail.com"} readOnly></input><br></br>
                     </div>
                     <div className='profilePage-label'>
-                        <label>You are a :</label><br></br>
+                        <label>*You are a :</label><br></br>
                         <input type="text" placeholder="Role" value={"SELLER"} readOnly></input><br></br>
                     </div>
                 </form>
             </div>
         </div>
         <div className="profilePage-right-bottom">
-            <button>Edit Profile</button>
+            <Link to={"/profile/edit"}><button>Edit Profile</button></Link>
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ const SellerDashboard = () => {
       <div className="sellerDashboard-right">
         <div className="sellerDashboard-right-top">
           <div className="sellerDashboard-right-top-content">
-            <Link to={"/dashboard"}>
+            <Link to={"/dashboard/seller"}>
               <i class='bx bx-buildings'></i>
               <h3 className="title">All Properties</h3>
             </Link>

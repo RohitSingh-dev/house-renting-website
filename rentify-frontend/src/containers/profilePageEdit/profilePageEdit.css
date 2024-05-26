@@ -1,0 +1,44 @@
+.profilePageEdit{
+    display: flex;
+    background-color:#7bc294;
+    height: 100vh;
+}
+.profilePageEdit-right{
+    width: 1100px;
+    height: 550px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 28px;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+.profilePageEdit-right-top{
+    display: flex;
+    margin: 60px 20px;
+}
+.profilePageEdit-right-top form{
+    margin: 0px 80px;
+    font-size: 22px;
+}
+.profilePageEdit-label{
+    margin-top: 20px;
+}
+.profilePageEdit-label input{
+    height: 25px;
+    width: 300px;
+}
+.profilePageEdit-right-bottom button{
+    font-size: 15px;
+    font-weight: 600;
+    padding: 5px 12px;
+    background-color: lime;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.profilePageEdit-right-bottom button:hover{
+    background-color: limegreen;
+}

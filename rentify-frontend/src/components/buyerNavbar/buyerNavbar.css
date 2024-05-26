@@ -1,0 +1,22 @@
+.buyerNavbar{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 40px;
+}
+.buyerNavbar-top a{
+    text-decoration: none;
+    color: #fff;
+}
+.buyerNavbar-top span{
+    color: black;
+}
+.buyerNavbar-bottom a{
+    text-decoration: none;
+    color: black;
+}
+.buyerNavbar-bottom a:hover{
+    color: #fff;
+}
+.buyerNavbar-bottom{
+    margin-top: 100px;
+}
