@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect, useContext} from 'react';
 import './sellerListPage.css';
 import SellerNavbar from '../../components/sellerNavbar/SellerNavbar';
+import { UserContext } from '../../context/UserContext';
 
 const SellerListPage = () => {
+  const [property, setProperty]= useState([]);
+  const [loading, setLoading]= useState(false);
+  const user= useContext(UserContext);
+
+  useEffect(() => {
+    if(!loading){
+      setLoading(true);
+      fetch("/property/seller/".concat(user.currentUser?.userId),{
+        method: "GET",
+        headers: {'Authorization': 'Bearer '.concat(user.currentUser?.userToken)},
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+    }
+  }, [])
+
   return (
     <div className='sellerListPage'>
       <div className="sellerListPage-left">
@@ -10,7 +25,28 @@ const SellerListPage = () => {
       </div>
       <div className="sellerListPage-right">
         <div className="sellerListPage-right-top"><h1>MY LIST</h1></div>
-        <div className="sellerListPage-right-bottom"></div>
+        <div className="sellerListPage-right-bottom">
+        <table className='sellerListPage-right-bottom-table'>
+            <thead className='sellerListPage-right-bottom-table-head'>
+              <tr>
+                  <th>Location</th>
+                  <th>Area</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className='sellerListPage-right-bottom-table-body'>
+              {
+                property?.map((res,index) => {
+                  return <tr key={index}>
+                    <td>{res.location}</td>
+                    <td>{res.area}</td>
+                    <td><button>View Property</button></td>
+                  </tr>
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

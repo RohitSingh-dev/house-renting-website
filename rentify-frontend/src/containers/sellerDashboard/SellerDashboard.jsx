@@ -12,7 +12,7 @@ const SellerDashboard = () => {
       setLoading(true);
       fetch("/property/all",{
         method: "GET",
-      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json); setLoading(false)}).catch(err => {console.log(err); setLoading(false)});
     }
   }, [])
 
@@ -58,11 +58,11 @@ const SellerDashboard = () => {
             </thead>
             <tbody className='sellerDashboard-right-bottom-table-body'>
               {
-                property?.map((res,index) => {
+                property.propertyResponses?.map((res,index) => {
                   return <tr key={index}>
                     <td>{res.location}</td>
                     <td>{res.area}</td>
-                    <td><Link to={"#"}><button>View Property</button></Link></td>
+                    <td><button>View Property</button></td>
                   </tr>
                 })
               }
