@@ -20,3 +20,9 @@
 .sellerNavbar-bottom{
     margin-top: 100px;
 }
+.sellerNavbar-bottom button{
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    margin-top: 210px;
+}

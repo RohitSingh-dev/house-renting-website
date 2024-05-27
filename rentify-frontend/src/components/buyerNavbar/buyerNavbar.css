@@ -20,3 +20,9 @@
 .buyerNavbar-bottom{
     margin-top: 100px;
 }
+.buyerNavbar-bottom button{
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    margin-top: 210px;
+}

@@ -8,7 +8,6 @@ const RegisterForm = (props) => {
   const [phone, setPhone]= useState(null);
   const [password, setPassword]= useState("");
   const [role, setRole]= useState("BUYER");
-  const [message, setMessage]= useState("");
   let handleRegister = async (e)=> {
     console.log("Inside handleRegister");
     e.preventDefault();
@@ -34,10 +33,10 @@ const RegisterForm = (props) => {
         setPhone(null);
         setPassword("");
         setRole("BUYER");
-        setMessage("User Registered successfuly");
+        alert("User Registered successfuly");
       }
       else{
-        setMessage("Invalid Input");
+        alert("Invalid Input");
       }
     }
     catch(err){
@@ -78,9 +77,6 @@ const RegisterForm = (props) => {
                 <option value={role} onChange={(e)=> setRole(e.target.value)}>BUYER</option>
                 <option value={role} onChange={(e)=> setRole(e.target.value)}>SELLER</option>
               </select>
-            </div>
-            <div className='registerForm-message'>
-              {message ? <p id='message'>{message}</p> : null}
             </div>
             <div className='registerForm-button'>
               <input type="submit" value="REGISTER"></input>

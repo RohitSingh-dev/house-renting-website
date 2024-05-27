@@ -4,43 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 
 const LoginForm = (props) => {
-  const [email, setEmail]= useState("");
-  const [password, setPassword]= useState("");
-  const user = useContext(UserContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { handleLogin } = useContext(UserContext);
   const navigate = useNavigate();
-  let handleSubmit = async (e)=> {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      let res = await fetch("/login",{
-        method: "POST",
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-        headers: {'Content-Type': 'application/json'},
-      });
-      let resJSON = await res.text();
-      if(res.status===200){
-        console.log(resJSON);
-        user.setCurrentUser(JSON.parse(resJSON));
-        setEmail("");
-        setPassword("");
-        if(user.currentUser?.userRole === "SELLER"){
-          navigate("/dashboard/seller");
-        }
-        else
-        {
-          navigate("/dashboard/buyer");
-        }
-      }
-      else{
-        alert("Invalid Credentials")
-      }
-    }
-    catch(err){
-      console.log(err);
-    }
+    await handleLogin(email, password);
+    setEmail("");
+    setPassword("");
+    navigate("/dashboard");
   };
+  
   return (
     <div className='loginForm'>
       <form onSubmit={handleSubmit}>
