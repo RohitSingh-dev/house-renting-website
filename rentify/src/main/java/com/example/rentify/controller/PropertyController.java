@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.rentify.entity.Property;
+import com.example.rentify.model.PropertyResponse;
 import com.example.rentify.service.PropertyService;
 
 @RestController
@@ -29,12 +30,12 @@ public class PropertyController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Property> getProperty(@PathVariable int id){
+    public ResponseEntity<PropertyResponse> getProperty(@PathVariable int id){
         return ResponseEntity.ok().body(propertyService.getProperty(id));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Property>> getAllProperties(){
+    public ResponseEntity<List<PropertyResponse>> getAllProperties(){
         return ResponseEntity.ok().body(propertyService.getAllProperties());
     }
 
@@ -49,27 +50,27 @@ public class PropertyController {
     }
 
     @GetMapping("/seller/{id}")
-    public ResponseEntity<List<Property>> getPropertiesBySeller(@PathVariable int id){
+    public ResponseEntity<List<PropertyResponse>> getPropertiesBySeller(@PathVariable int id){
         return ResponseEntity.ok().body(propertyService.getPropertiesBySeller(id));
     }
 
     @GetMapping("/location/{location}")
-    public ResponseEntity<List<Property>> getPropertiesByLocation(@PathVariable String location){
+    public ResponseEntity<List<PropertyResponse>> getPropertiesByLocation(@PathVariable String location){
         return ResponseEntity.ok().body(propertyService.getPropertiesByLocation(location));
     }
 
     @GetMapping("/area/{area}")
-    public ResponseEntity<List<Property>> getPropertiesByArea(@PathVariable String area){
+    public ResponseEntity<List<PropertyResponse>> getPropertiesByArea(@PathVariable String area){
         return ResponseEntity.ok().body(propertyService.getPropertiesByArea(area));
     }
 
     @GetMapping("/bedroom/{bedroomNum}")
-    public ResponseEntity<List<Property>> getPropertiesByBedroomNum(@PathVariable int bedroomNum){
+    public ResponseEntity<List<PropertyResponse>> getPropertiesByBedroomNum(@PathVariable int bedroomNum){
         return ResponseEntity.ok().body(propertyService.getPropertiesByBedroomNum(bedroomNum));
     }
 
     @GetMapping("/bathroom/{bathroomNum}")
-    public ResponseEntity<List<Property>> getPropertiesByBathroomNum(@PathVariable int bathroomNum){
+    public ResponseEntity<List<PropertyResponse>> getPropertiesByBathroomNum(@PathVariable int bathroomNum){
         return ResponseEntity.ok().body(propertyService.getPropertiesByBathroomNum(bathroomNum));
     }
 }

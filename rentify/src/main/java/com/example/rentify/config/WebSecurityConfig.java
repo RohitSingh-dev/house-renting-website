@@ -46,7 +46,7 @@ public class WebSecurityConfig {
         .requestMatchers(HttpMethod.POST, "/property/create").hasAuthority("SELLER")
         .requestMatchers(HttpMethod.PUT, "/property/update").hasAuthority("SELLER")
         .requestMatchers(HttpMethod.DELETE, "/property/**").hasAuthority("SELLER")
-        .requestMatchers(HttpMethod.GET, "/property/**").hasAnyAuthority("SELLER", "BUYER")
+        .requestMatchers(HttpMethod.GET, "/property/**").permitAll()
         .anyRequest().authenticated()).authenticationManager(authenticationManager)
         .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
