@@ -1,7 +1,5 @@
 package com.example.rentify.entity;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,12 +23,12 @@ public class Property {
     private String area;
     private int bedroomNum;
     private int bathroomNum;
-    private List<String> landmark;
+    private String landmark;
 
     @ManyToOne
     private Seller seller;
 
-    public Property(String location, String area, int bedroomNum, int bathroomNum, List<String> landmark) {
+    public Property(String location, String area, int bedroomNum, int bathroomNum, String landmark) {
         this.location = location;
         this.area = area;
         this.bedroomNum = bedroomNum;

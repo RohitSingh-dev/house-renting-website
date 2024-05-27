@@ -1,7 +1,5 @@
 package com.example.rentify.model;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +11,6 @@ public class PropertyResponse {
     private String area;
     private int bedroomNum;
     private int bathroomNum;
-    private List<String> landmark;
+    private String landmark;
     private SellerResponse sellerResponse;
 }
