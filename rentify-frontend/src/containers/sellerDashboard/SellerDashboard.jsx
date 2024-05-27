@@ -1,9 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './sellerDashboard.css';
 import { PropertyForm, SellerNavbar } from '../../components';
 import { Link } from 'react-router-dom';
 
 const SellerDashboard = () => {
+  const [property, setProperty]= useState([]);
+  const [loading, setLoading]= useState(false);
+  
+  useEffect(() => {
+    if(!loading){
+      setLoading(true);
+      fetch("/property/all",{
+        method: "GET",
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+    }
+  }, [])
+
   const [isOpen, setIsOpen]= useState(false);
   function togglePopUp(){
     setIsOpen(!isOpen);
@@ -35,7 +47,28 @@ const SellerDashboard = () => {
             {isOpen? <PropertyForm toggle={togglePopUp}/> : null}
           </div>
         </div>
-        <div className="sellerDashboard-right-bottom"></div>
+        <div className="sellerDashboard-right-bottom">
+          <table className='sellerDashboard-right-bottom-table'>
+            <thead className='sellerDashboard-right-bottom-table-head'>
+              <tr>
+                  <th>Location</th>
+                  <th>Area</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className='sellerDashboard-right-bottom-table-body'>
+              {
+                property?.map((res,index) => {
+                  return <tr key={index}>
+                    <td>{res.location}</td>
+                    <td>{res.area}</td>
+                    <td><Link to={"#"}><button>View Property</button></Link></td>
+                  </tr>
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

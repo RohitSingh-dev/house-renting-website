@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import './buyerDashboard.css';
 import { BuyerNavbar } from '../../components';
 import { Link } from 'react-router-dom';
 
 const BuyerDashboard = () => {
+  const [property, setProperty]= useState([]);
+  const [loading, setLoading]= useState(false);
+  
+  useEffect(() => {
+    if(!loading){
+      setLoading(true);
+      fetch("/property/all",{
+        method: "GET",
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+    }
+  }, [])
+
   return (
     <div className='buyerDashboard'>
       <div className="buyerDashboard-left">
@@ -24,7 +36,28 @@ const BuyerDashboard = () => {
             </Link>
           </div>
         </div>
-        <div className="buyerDashboard-right-bottom"></div>
+        <div className="buyerDashboard-right-bottom">
+          <table className='buyerDashboard-right-bottom-table'>
+            <thead className='buyerDashboard-right-bottom-table-head'>
+              <tr>
+                  <th>Location</th>
+                  <th>Area</th>
+                  <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className='buyerDashboard-right-bottom-table-body'>
+              {
+                property?.map((res,index) => {
+                  return <tr key={index}>
+                    <td>{res.location}</td>
+                    <td>{res.area}</td>
+                    <td><Link to={"#"}><button>View Property</button></Link></td>
+                  </tr>
+                })
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   )

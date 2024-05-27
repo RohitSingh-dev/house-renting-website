@@ -38,3 +38,24 @@
     margin-top: -5px;
     font-size: 15px;
 }
+.buyerDashboard-right-bottom-table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.buyerDashboard-right-bottom-table-head{
+    background-color: grey;
+    border-radius: 5px;
+}
+.buyerDashboard-right-bottom-table-head th{
+    padding: 5px 110px;
+    font-size: 18px;
+}
+.buyerDashboard-right-bottom-table-body{
+    background-color: blanchedalmond;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.buyerDashboard-right-bottom-table-body td{
+    padding: 10px 90px;
+}
