@@ -69,7 +69,7 @@ const ProfilePageEdit = () => {
                     id: user.currentUser?.userId,
                     firstname: person.firstname,
                     lastname: person.lastname,
-                    phonr: person.phone,
+                    phone: person.phone,
                 }),
                 headers: {'Content-Type': 'application/json',
                 'Authorization': 'Bearer '.concat(user.currentUser?.userToken)},
