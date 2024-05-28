@@ -12,7 +12,7 @@ const BuyerDashboard = () => {
       setLoading(true);
       fetch("/property/all",{
         method: "GET",
-      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json);}).catch(err => {console.log(err); setLoading(false)});
     }
   }, [])
 
@@ -47,10 +47,10 @@ const BuyerDashboard = () => {
             </thead>
             <tbody className='buyerDashboard-right-bottom-table-body'>
               {
-                property?.map((res,index) => {
+                property?.map((propertyResponse,index) => {
                   return <tr key={index}>
-                    <td>{res.location}</td>
-                    <td>{res.area}</td>
+                    <td>{propertyResponse.location}</td>
+                    <td>{propertyResponse.area}</td>
                     <td><Link to={"#"}><button>View Property</button></Link></td>
                   </tr>
                 })

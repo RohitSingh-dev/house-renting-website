@@ -58,10 +58,10 @@ const SellerDashboard = () => {
             </thead>
             <tbody className='sellerDashboard-right-bottom-table-body'>
               {
-                property.propertyResponses?.map((res,index) => {
+                property?.map((propertyResponse,index) => {
                   return <tr key={index}>
-                    <td>{res.location}</td>
-                    <td>{res.area}</td>
+                    <td>{propertyResponse.location}</td>
+                    <td>{propertyResponse.area}</td>
                     <td><button>View Property</button></td>
                   </tr>
                 })

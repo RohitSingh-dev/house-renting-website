@@ -11,10 +11,14 @@ const LoginForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await handleLogin(email, password);
-    setEmail("");
+    if(await handleLogin(email, password)){
+      setEmail("");
     setPassword("");
     navigate("/dashboard");
+    }
+    else{
+      navigate("/");
+    }
   };
   
   return (

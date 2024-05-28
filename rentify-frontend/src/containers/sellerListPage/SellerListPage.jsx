@@ -14,7 +14,7 @@ const SellerListPage = () => {
       fetch("/property/seller/".concat(user.currentUser?.userId),{
         method: "GET",
         headers: {'Authorization': 'Bearer '.concat(user.currentUser?.userToken)},
-      }).then(res => res.json()).then(json => {console.log(json); setProperty(json.propertyResponses);}).catch(err => {console.log(err); setLoading(false)});
+      }).then(res => res.json()).then(json => {console.log(json); setProperty(json);}).catch(err => {console.log(err); setLoading(false)});
     }
   }, [])
 
@@ -36,10 +36,10 @@ const SellerListPage = () => {
             </thead>
             <tbody className='sellerListPage-right-bottom-table-body'>
               {
-                property?.map((res,index) => {
+                property?.map((propertyResponse,index) => {
                   return <tr key={index}>
-                    <td>{res.location}</td>
-                    <td>{res.area}</td>
+                    <td>{propertyResponse.location}</td>
+                    <td>{propertyResponse.area}</td>
                     <td><button>View Property</button></td>
                   </tr>
                 })

@@ -15,6 +15,7 @@ export const UserContextProvider= (props)=> {
           const resJSON = await res.text();
           if (res.status === 200) {
             setCurrentUser(JSON.parse(resJSON));
+            return true;
           } else {
             alert("Invalid Credentials");
           }
