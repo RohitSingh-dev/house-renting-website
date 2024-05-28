@@ -25,6 +25,7 @@ public class PropertyService {
     public PropertyResponse getProperty(int id){
         Property property= propertyRepository.findById(id).orElseThrow(()-> new RuntimeException("Property Not Found"));
         PropertyResponse propertyResponse = new PropertyResponse();
+        propertyResponse.setId(id);
         propertyResponse.setLocation(property.getLocation());
         propertyResponse.setArea(property.getArea());
         propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -40,6 +41,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -72,6 +74,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -89,6 +92,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -106,6 +110,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -123,6 +128,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());
@@ -140,6 +146,7 @@ public class PropertyService {
         List<PropertyResponse> propertyResponses = new ArrayList<>();
         for(Property property : properties){
             PropertyResponse propertyResponse = new PropertyResponse();
+            propertyResponse.setId(property.getId());
             propertyResponse.setLocation(property.getLocation());
             propertyResponse.setArea(property.getArea());
             propertyResponse.setBedroomNum(property.getBedroomNum());

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class PropertyResponse {
     
+    private int id;
     private String location;
     private String area;
     private int bedroomNum;
