@@ -16,10 +16,13 @@ const BuyerDashboard = () => {
     }
   }, [])
 
-  const [open, setOpen]= useState(false);
-  function toggleMe(){
-    setOpen(!open);
-  };
+  const [propertyVisibility, setPropertyVisibility] = useState({});
+  function toggleMe(propertyId) {
+    setPropertyVisibility((prevState) => ({
+      ...prevState,
+      [propertyId]: !prevState[propertyId],
+    }));
+  }
 
   return (
     <div className='buyerDashboard'>
@@ -53,11 +56,12 @@ const BuyerDashboard = () => {
             <tbody className='buyerDashboard-right-bottom-table-body'>
               {
                 property?.map((propertyResponse,index) => {
+                  const isVisible = propertyVisibility[propertyResponse.id] || false;
                   return <tr key={index}>
                     <td>{propertyResponse.location}</td>
                     <td>{propertyResponse.area}</td>
-                    <td><button onClick={toggleMe}>View Property</button></td>
-                    {open? <PropertyCard toggle={toggleMe}/> : null}
+                    <td><button onClick={() => toggleMe(propertyResponse.id)}>View Property</button></td>
+                    {isVisible && (<PropertyCard toggle={() => toggleMe(propertyResponse.id)} propertyResponse={propertyResponse}/>)}
                   </tr>
                 })
               }

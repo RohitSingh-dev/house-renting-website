@@ -15,41 +15,41 @@ const PropertyCard = (props) => {
               <div>
                 <div className='propertyCard-label'>
                   <label>Location:</label><br></br>
-                  <input type="text" placeholder="Enter Location" value={""}></input><br></br>
+                  <input type="text" placeholder="Enter Location" value={props.propertyResponse.location}></input><br></br>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Area:</label><br></br>
-                  <input type="text" placeholder="Enter Area" value={""}></input>
+                  <input type="text" placeholder="Enter Area" value={props.propertyResponse.area}></input>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Bedroom Count:</label><br></br>
-                  <input type="number" placeholder="Bedroom" value={""}></input>
+                  <input type="number" placeholder="Bedroom" value={props.propertyResponse.bedroomNum}></input>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Bathroom Count:</label><br></br>
-                  <input type="number" placeholder="Bathroom" value={""}></input>
+                  <input type="number" placeholder="Bathroom" value={props.propertyResponse.bathroomNum}></input>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Landmark:</label><br></br>
-                  <input type="text" placeholder="Enter Landmark" value={""}></input>
+                  <input type="text" placeholder="Enter Landmark" value={props.propertyResponse.landmark}></input>
                 </div>
               </div>
               <div>
                 <div className='propertyCard-label'>
                   <label>Seller Firstname:</label><br></br>
-                  <input type="text" placeholder="Enter Location" value={""}></input><br></br>
+                  <input type="text" placeholder="Enter Location" value={props.propertyResponse.sellerResponse.firstname}></input><br></br>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Seller Lastname:</label><br></br>
-                  <input type="text" placeholder="Enter Area" value={""}></input>
+                  <input type="text" placeholder="Enter Area" value={props.propertyResponse.sellerResponse.lastname}></input>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Seller Email:</label><br></br>
-                  <input type="text" placeholder="Bedroom" value={""}></input>
+                  <input type="text" placeholder="Bedroom" value={props.propertyResponse.sellerResponse.email}></input>
                 </div>
                 <div className='propertyCard-label'>
                   <label>Seller Phone:</label><br></br>
-                  <input type="number" placeholder="Bathroom" value={""}></input>
+                  <input type="number" placeholder="Bathroom" value={props.propertyResponse.sellerResponse.phone}></input>
                 </div>
               </div>
             </div>
