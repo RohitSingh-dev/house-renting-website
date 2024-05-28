@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext} from 'react';
 import './sellerListPage.css';
 import SellerNavbar from '../../components/sellerNavbar/SellerNavbar';
 import { UserContext } from '../../context/UserContext';
+import PropertyCard from '../../components/propertyCard/PropertyCard';
 
 const SellerListPage = () => {
   const [property, setProperty]= useState([]);
@@ -17,6 +18,11 @@ const SellerListPage = () => {
       }).then(res => res.json()).then(json => {console.log(json); setProperty(json);}).catch(err => {console.log(err); setLoading(false)});
     }
   }, [])
+
+  const [open, setOpen]= useState(false);
+  function toggleMe(){
+    setOpen(!open);
+  };
 
   return (
     <div className='sellerListPage'>
@@ -40,7 +46,8 @@ const SellerListPage = () => {
                   return <tr key={index}>
                     <td>{propertyResponse.location}</td>
                     <td>{propertyResponse.area}</td>
-                    <td><button>View Property</button></td>
+                    <td><button onClick={toggleMe}>View Property</button></td>
+                    {open? <PropertyCard toggle={toggleMe}/> : null}
                   </tr>
                 })
               }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './sellerDashboard.css';
-import { PropertyForm, SellerNavbar } from '../../components';
+import { PropertyCard, PropertyForm, SellerNavbar } from '../../components';
 import { Link } from 'react-router-dom';
 
 const SellerDashboard = () => {
@@ -20,6 +20,12 @@ const SellerDashboard = () => {
   function togglePopUp(){
     setIsOpen(!isOpen);
   };
+
+  const [open, setOpen]= useState(false);
+  function toggleMe(){
+    setOpen(!open);
+  };
+
   return (
     <div className='sellerDashboard'>
       <div className="sellerDashboard-left">
@@ -62,7 +68,8 @@ const SellerDashboard = () => {
                   return <tr key={index}>
                     <td>{propertyResponse.location}</td>
                     <td>{propertyResponse.area}</td>
-                    <td><button>View Property</button></td>
+                    <td><button onClick={toggleMe}>View Property</button></td>
+                    {open? <PropertyCard toggle={toggleMe}/> : null}
                   </tr>
                 })
               }

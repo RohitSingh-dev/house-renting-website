@@ -1,0 +1,37 @@
+.propertyCard-fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: darkslategrey;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+.propertyCard-fieldset-top{
+    display: flex;
+    align-items: center;
+    margin-bottom: -10px;
+}
+.propertyCard-legend{
+    margin-right: 150px;
+}
+.propertyCard-close-btn{
+    margin-right: -140px;
+}
+.propertyCard-fieldset-bottom{
+    display: flex;
+}
+.propertyCard-fieldset-bottom div{
+    margin: 20px 20px;
+}
+.propertyCard-fieldset-bottom label{
+    font-size: 17px;
+    font-weight: 600;
+}
+.propertyCard-fieldset-bottom input{
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    color: black;
+}

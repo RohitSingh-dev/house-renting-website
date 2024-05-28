@@ -64,3 +64,11 @@
 .sellerDashboard-right-bottom-table-body td{
     padding: 10px 90px;
 }
+.sellerDashboard-right-bottom-table-body button{
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 3px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

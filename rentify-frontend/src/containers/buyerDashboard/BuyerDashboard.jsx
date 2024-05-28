@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './buyerDashboard.css';
-import { BuyerNavbar } from '../../components';
+import { BuyerNavbar, PropertyCard } from '../../components';
 import { Link } from 'react-router-dom';
 
 const BuyerDashboard = () => {
@@ -15,6 +15,11 @@ const BuyerDashboard = () => {
       }).then(res => res.json()).then(json => {console.log(json); setProperty(json);}).catch(err => {console.log(err); setLoading(false)});
     }
   }, [])
+
+  const [open, setOpen]= useState(false);
+  function toggleMe(){
+    setOpen(!open);
+  };
 
   return (
     <div className='buyerDashboard'>
@@ -51,7 +56,8 @@ const BuyerDashboard = () => {
                   return <tr key={index}>
                     <td>{propertyResponse.location}</td>
                     <td>{propertyResponse.area}</td>
-                    <td><Link to={"#"}><button>View Property</button></Link></td>
+                    <td><button onClick={toggleMe}>View Property</button></td>
+                    {open? <PropertyCard toggle={toggleMe}/> : null}
                   </tr>
                 })
               }
